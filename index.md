@@ -63,7 +63,7 @@ Eles podem ser configurados como campos obrigatórios ou opcionais.
 
 ### Exemplo
 
-![atributo](imagens/atributo.png)
+![atributo](assets/imagens/atributo.png)
 
 ```
 nome: Texto(60)
@@ -84,7 +84,7 @@ nome: Texto(60)
 ### 1.2 Tipo `Opcoes()` (Select)
 
 Permite criar listas de seleção com valores definidos.
-![opcoes](imagens/opcoes.png)
+![opcoes](assets/imagens/opcoes.png)
 
 para isso deve 
 * colocar o tipo `Opcoes()` no campo 
