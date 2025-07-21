@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/material-style.css' | relative_url }}">
 </head>
+</head>
+
 <body>
-  {{ content }}
+  <header class="nobuntu-header">
+    <div class="nobuntu-header-content">
+      <h1 class="nobuntu-title">Nobuntu DOC</h1>
+      <nav class="nobuntu-nav">
+        <a href="/">Início</a>
+        <a href="/about">Sobre</a>
+      </nav>
+    </div>
+  </header>
+  <main class="nobuntu-main">
+    {{ content }}
+  </main>
+  <footer class="nobuntu-footer">
+    &copy; 2025 Nobuntu. Todos os direitos reservados.
+  </footer>
 </body>
+</head>
+
+<body>
+
 </html>
