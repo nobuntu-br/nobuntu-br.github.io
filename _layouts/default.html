@@ -2,28 +2,79 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/material-style.css' | relative_url }}">
-</head>
+  {% if page.css %}
+  {% for stylesheet in page.css %}
+  <link rel="stylesheet" href="{{ '/assets/css/' | append: stylesheet | relative_url }}" rel="stylesheet">
+  {% endfor %}
+  {% endif %}
+
+  {% if page.js %}
+  {% for script in page.js %}
+  <script src="{{ '/assets/js/' | append: script | relative_url }}"></script>
+  {% endfor %}
+  {% endif %}
 </head>
 
-<body>
-  <header class="nobuntu-header">
-    <div class="nobuntu-header-content">
-      <h1 class="nobuntu-title">Nobuntu DOC</h1>
-      <nav class="nobuntu-nav">
-        <a href="/">Início</a>
-        <a href="/about">Sobre</a>
-      </nav>
-    </div>
+<body class="">
+  <header>
+    <nav class="light-blue">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Nobuntu DOC</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="{{ '/' | relative_url }}">DOC</a></li>
+          <li><a href="{{ '/gerador/' | relative_url }}">Gerador</a></li>
+          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+        </ul>
+      </div>
+    </nav>
   </header>
   <main class="nobuntu-main">
     {{ content }}
   </main>
-  <footer class="nobuntu-footer">
-    &copy; 2025 Nobuntu. Todos os direitos reservados.
+  <footer class="page-footer light-blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <!-- <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div> -->
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          &copy; 2025 Nobuntu. Todos os direitos reservados.
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
   </footer>
+
+  <!-- <footer class="nobuntu-footer">
+    &copy; 2025 Nobuntu. Todos os direitos reservados.
+  </footer> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+    });
+  </script>
 </body>
 </head>
 
