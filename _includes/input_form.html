@@ -1,0 +1,70 @@
+<div class="row">
+    <form class="col s12" action="#">
+        <div class="row">
+
+            <div class="input-field col s6">
+                <input type="text" id="attrName" name="attrName" data-length="10" required>
+                <label for="attrName">Nome do atributo</label>
+                <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
+            </div>
+
+            <div class="input-field col s6">
+                <select for="attrType" id="attrType" name="attrType" required>
+                    <option value="Texto">Texto</option>
+                    <option value="TextoLongo">TextoLongo</option>
+                    <option value="Inteiro">Inteiro</option>
+                    <option value="Double">Double</option>
+                    <option value="Email">Email</option>
+                    <option value="CPF">CPF</option>
+                    <option value="CNPJ">CNPJ</option>
+                    <option value="Telefone">Telefone</option>
+                    <option value="Celular">Celular</option>
+                    <option value="TelefoneCelular">TelefoneCelular</option>
+                </select>
+                <label>Tipo</label>
+            </div>
+
+
+            <div class="input-field col s6">
+
+                <label for="attrLimit">Limite de caracteres</label>
+                <input type="number" min="0" id="attrLimit" name="attrLimit">
+                <br><br>
+            </div>
+            <div class="input-field col s6">
+
+                <label for="attrTitle">Title em pt-br</label>
+                <input type="text" id="attrTitle" name="attrTitle" required>
+                <br><br>
+            </div>
+
+            <label class="col s6">
+                <input type="checkbox" id="isRequired" class="filled-in" name="isRequired">
+                <span>
+                    É obrigatório?
+                </span>
+            </label>
+            <label class="col s6">
+                <input type="checkbox" id="IsSearchable" class="filled-in" name="IsSearchable">
+                <span>
+                    É Searchable?
+                </span>
+            </label>
+            <br><br>
+
+            <!-- <button type="submit" class="waves-effect waves-light btn">Enviar</button> -->
+        </div>
+    </form>
+    <button type="submit" class="waves-effect waves-light btn col s12 light-blue" onclick="genInput()">Gerar
+        Componente</button>
+
+    <br />
+    <textarea id="output" rows="50" cols="50" style="height: 12rem;" readonly></textarea>
+    <br />
+    <div class="outlined-textfield">
+        <input type="text" placeholder="" id="nome" />
+        <label for="nome">Nome</label>
+    </div>
+
+
+</div>
