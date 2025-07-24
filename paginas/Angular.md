@@ -1,3 +1,10 @@
+---
+layout: default
+title: Gerador
+permalink: /angular/
+
+---
+
 # Componente `InputFieldComponent`
 
 Componente de campo de entrada reutilizável para formulários.
