@@ -31,45 +31,7 @@ Eles podem ser configurados como campos obrigatórios ou opcionais.
 
 <div id="editor1" style="height: 300px; width: 100%; border-radius: 6px;"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-<script>
-  var editor = ace.edit("editor1");
-  editor.setTheme("ace/theme/dracula");
-  editor.session.setMode("ace/mode/yaml");
-  editor.setValue(`nome: Texto(60)
-  @
-    column
-      nome
-    title
-      pt-br
-        Nome
-      en
-        Name
-    description
-      pt
-        Nome completo do cliente
-    required`, -1);
-  editor.setOptions({
-    fontSize: "14px",
-    showPrintMargin: false,
-    wrap: true,
-    tabSize: 2
-  });
-  function atualizarLabel() {
-    const conteudo = editor.getValue();
-    const regex = /title\s+pt-br\s+([^\n]+)/;
-    const match = conteudo.match(regex);
-    if (match) {
-      const novoNome = match[1].trim();
-      const label = document.querySelector("label[for='nome']");
-      if (label) label.textContent = novoNome;
-    }
-  }
-  atualizarLabel();
-  editor.session.on('change', atualizarLabel);
-</script>
 
-</style>
 
 <div class="outlined-textfield">
   <input type="text" placeholder="" id="nome" />
@@ -132,9 +94,9 @@ para isso deve
 * colocar o tipo `Opcoes()` no campo 
 * propriedades do atributo deve inserir `limiteSelecionado` com valores inteiros
 * `opcoes`, onde cada valor deve ter:
-    * `pt` o titulo em pt-br
-    * `en` o titulo em ingles
-    * `dbSave` o nome que serar salvo no banco de dados
+  - `pt` o titulo em pt-br
+  - `en` o titulo em ingles
+  - `dbSave` o nome que serar salvo no banco de dados 
 ```
 <nomeAtributo>: Opcoes()
     @
