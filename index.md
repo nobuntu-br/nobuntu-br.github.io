@@ -90,9 +90,8 @@ para isso deve
 * colocar o tipo `Opcoes()` no campo 
 * propriedades do atributo deve inserir `limiteSelecionado` com valores inteiros
 * `opcoes`, onde cada valor deve ter:
-<!--  - `pt` o titulo em pt-br
-  - `en` o titulo em ingles
-  - `dbSave` o nome que serar salvo no banco de dados -->
+  
+
 ```
 <nomeAtributo>: Opcoes()
     @
