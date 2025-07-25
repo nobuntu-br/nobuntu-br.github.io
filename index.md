@@ -29,10 +29,6 @@ Eles podem ser configurados como campos obrigatórios ou opcionais.
 ```
 ### resultado
 
-<div id="editor1" style="height: 300px; width: 100%; border-radius: 6px;"></div>
-
-
-
 <div class="outlined-textfield">
   <input type="text" placeholder="" id="nome" />
   <label for="nome">Nome</label>
