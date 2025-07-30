@@ -6,6 +6,9 @@
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <title>{{ page.title }}</title>
   {% if page.css %}
@@ -23,19 +26,38 @@
 
 <body class="">
   <header>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="{{ '/mapper/class/' | relative_url }}">Classes</a></li>
+      <li><a href="{{ '/mapper/input/' | relative_url }}">Inputs</a></li>
+      <!-- <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li> -->
+    </ul>
+    <ul id="angular" class="dropdown-content">
+      <li><a href="{{ '/angular/inputs/' | relative_url }}">Inputs</a></li>
+      <li><a href="{{ '/angular/forms/' | relative_url }}">Forms</a></li>
+      <li><a href="{{ '/angular/avaliacao/' | relative_url }}">Avaliacao</a></li>
+      <!-- <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li> -->
+    </ul>
     <nav class="light-blue">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Nobuntu DOC</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a href="{{ '/' | relative_url }}">DOC</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="angular">Angular<i
+                class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Mapper<i
+                class="material-icons right">arrow_drop_down</i></a></li>
           <li><a href="{{ '/gerador/' | relative_url }}">Gerador</a></li>
-          <li><a href="{{ '/angular/' | relative_url }}">Angular Componentes</a></li>
-          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
         </ul>
       </div>
     </nav>
+
   </header>
   <main class="nobuntu-main">
+
     {{ content }}
   </main>
   <footer class="page-footer light-blue">
@@ -45,16 +67,7 @@
           <h5 class="white-text">Footer Content</h5>
           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         </div>
-        <!-- <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div> -->
+
       </div>
       <div class="footer-copyright">
         <div class="container">
@@ -64,16 +77,24 @@
       </div>
   </footer>
 
-  <!-- <footer class="nobuntu-footer">
-    &copy; 2025 Nobuntu. Todos os direitos reservados.
-  </footer> -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('select');
       M.FormSelect.init(elems);
+    });
+
+
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      M.Dropdown.init(elems);
     });
   </script>
 </body>
