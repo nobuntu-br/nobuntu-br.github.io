@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Avalicao
+title: Consulta
 permalink: /angular/Consulta
 css:
   - material-style.css

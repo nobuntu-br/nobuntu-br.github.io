@@ -5,7 +5,6 @@ permalink: /angular/avaliacao
 css:
   - material-style.css
 ---
-
 ## `AvaliacaoFieldComponent`
 
 ### Descrição
