@@ -31,9 +31,10 @@ Componente de campo customizado que permite ao usuário selecionar uma localiza�
   [isRequired]="true"
   [resourceForm]="form"
   [conditionalVisibility]="{ field: 'tipo', values: ['externo'] }"
-  [locationMarker]="{ lat: -23.5, lng: -46.6 }"
+  [locationMarker]="{ lat: -23.5, lng: -46.6 , }"
 >
 </app-location-field>
+
 ```
 
 ### Observações
