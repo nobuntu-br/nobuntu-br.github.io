@@ -25,8 +25,14 @@ Eles podem ser configurados como campos obrigatórios ou opcionais.
             <descrição em pt ou en>
         required          ← (opcional) marca como obrigatório
         searchable        ← (opcional) marca como pesquisável
+        Unique            ← (opcional) salvar como valor unico no banco de dados
+        saveMask          ← (opcional) salvar com a mascara no banco de dados
         (demais propriedades específicas)
 ```
+
+> o `saveMask` funciona apenas em com tipos que tenha mascaras como:
+> - `CPF()`, `CNPJ()` e `CPFCNPJ()`;
+> - `Telefone()`, `Celular()`e `TelefoneCelular()`;
 
 #### resultado
 
