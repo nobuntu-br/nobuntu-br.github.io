@@ -25,7 +25,7 @@ Eles podem ser configurados como campos obrigatórios ou opcionais.
             <descrição em pt ou en>
         required          ← (opcional) marca como obrigatório
         searchable        ← (opcional) marca como pesquisável
-        Unique            ← (opcional) salvar como valor unico no banco de dados
+        unique            ← (opcional) salvar como valor unico no banco de dados
         saveMask          ← (opcional) salvar com a mascara no banco de dados
         (demais propriedades específicas)
 ```
@@ -180,3 +180,4 @@ tipoConta: Opcoes()
                     pagamento
 
 ```
+
