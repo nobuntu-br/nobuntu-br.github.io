@@ -1,3 +1,4 @@
+---
 # ImportCsvComponent
 
 ##  Descrição
@@ -148,3 +149,4 @@ exemplo_id,exemplo_nome,exemplo_preco,exemplo_ativo
 
 ## Autor
 Desenvolvido como parte da melhoria do **SubForm Import CSV**, permitindo importação em massa de registros com controle de colunas e validações automáticas.
+---
