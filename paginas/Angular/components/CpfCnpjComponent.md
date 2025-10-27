@@ -7,7 +7,7 @@ css: material-style.css
 
 # Validador de CPF/CNPJ
 
-## 📝 Descrição
+##  Descrição
 Módulo responsável pela **validação de campos de CPF e CNPJ**, tanto numéricos quanto alfanuméricos.  
 É utilizado pelo **backend** e **frontend** para garantir que valores informados em formulários sejam **válidos** e **não falsos**.
 
@@ -17,7 +17,7 @@ Além disso, há suporte para remover máscaras antes da validação, garantindo
 
 ---
 
-## ⚙️ Funções
+## Funções
 
 ### `unmask(value: string): string`
 Remove todos os caracteres não numéricos de uma string (ex: pontos, barras, traços).
@@ -139,7 +139,7 @@ isValidCpf("390.533.447-05"); // true
 
 ---
 
-## 🔍 Observações
+##  Observações
 
 - O **backend** valida automaticamente se o valor informado é CPF ou CNPJ.  
 - Caso a verificação falhe, é retornado um erro informando que o documento não é válido.  
@@ -148,15 +148,4 @@ isValidCpf("390.533.447-05"); // true
 
 ---
 
-## 🧩 Integração com SubForm Import CSV
 
-Além da validação, o sistema inclui um módulo de **importação CSV** no SubForm:
-
-- Permite **importar arquivos CSV** diretamente em subformulários, ao invés de criar registros manualmente.  
-- Possui **validação de compatibilidade** do arquivo antes da importação.  
-- É possível **desmarcar colunas** que não devem ser importadas.  
-- Caso o arquivo contenha uma coluna `"id"`, os registros existentes são **atualizados**, não criados.  
-
-Essa integração facilita o carregamento em massa de dados já validados, garantindo integridade e consistência nas operações de importação.
-
----
