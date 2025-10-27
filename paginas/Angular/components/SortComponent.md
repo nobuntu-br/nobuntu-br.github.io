@@ -116,14 +116,3 @@ No diálogo, o usuário pode adicionar múltiplas linhas de ordenação, selecio
 | `onClearSort()` | Limpa todas as ordenações e fecha o diálogo. |
 
 ---
-
-## Interfaces auxiliares
-
-### `availableFieldsForIndex(index: number): SortField[]`
-Retorna os campos disponíveis para seleção em um índice específico, evitando duplicidade de campos.
-
-### `canRemove(): boolean`
-Indica se há mais de uma linha de ordenação, permitindo exibir ou ocultar o botão de remoção.
-
-### `hasAvailableFields(index: number): boolean`
-Verifica se ainda existem campos disponíveis para seleção no índice atual.
