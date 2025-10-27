@@ -1,46 +1,46 @@
-layout: default
-title: ImportCsvComponent
-permalink: /angular/ImportCsvComponent
-css:
+# ImportCsvComponent
 
-material-style.css
+## Descrição
 
-ImportCsvComponent
-Descrição
+O **ImportCsvComponent** é um componente Angular responsável por **importar arquivos CSV** para dentro de um **SubForm**.  
+Ele oferece uma interface intuitiva para carregar, visualizar e processar arquivos CSV, garantindo compatibilidade total com a estrutura configurada via `IPageStructure`.
 
-O ImportCsvComponent é um componente Angular responsável por importar arquivos CSV para dentro de um SubForm.
-Ele permite que o usuário:
+---
 
-Carregar um arquivo CSV (via arrastar e soltar ou seleção manual)
+## Funcionalidades Principais
 
-Visualizar uma prévia dos dados
+- Upload de arquivo CSV (arrastar e soltar ou seleção manual)  
+- Detecção automática de delimitador (`;`, `,`, `|`, `\t`)  
+- Detecção automática de encoding (UTF-8, UTF-16LE, etc.)  
+- Visualização prévia das primeiras linhas  
+- Seleção de colunas que serão importadas  
+- Conversão automática de tipos conforme JSON de configuração  
+- Validação de campos obrigatórios  
+- Geração automática de **template CSV**  
+- Atualização de registros existentes via coluna `id`  
+- Tratamento de erros e feedback visual (mensagens, tooltips e barra de progresso)
 
-Selecionar quais colunas serão importadas
+---
 
-Processar os dados convertendo automaticamente os tipos conforme a configuração JSON da classe (definida via IPageStructure)
+## Conversão de Tipos
 
-O componente também possui mecanismos de validação que garantem que o CSV corresponda aos campos configurados no JSON, incluindo:
+| Tipo no JSON | Conversão no CSV | Exemplos de Valores Válidos |
+|---------------|------------------|------------------------------|
+| **boolean**   | Reconhece valores como `true`, `1`, `sim`, `on`, `ativo` | `Sim`, `false`, `0` |
+| **number**    | Remove formatações e converte para número | `1.500`, `2000`, `3,14` |
+| **date**      | Converte formatos comuns para ISO | `25/12/2024`, `2024-12-25` |
+| **datetime**  | Similar ao date, incluindo hora se presente | `25/12/2024 14:30` |
+| **string**    | Mantém valor original | `Texto livre` |
 
-Verificação de colunas obrigatórias
+---
 
-Conversão de tipos de dados (boolean, number, date, datetime)
+## Interfaces
 
-Se o CSV contiver uma coluna id, o sistema atualizará os registros correspondentes em vez de criar novos.
-
-Interfaces
-ImportCsvDialogData
-
-Define os dados recebidos pelo diálogo de importação:
-
-export interface ImportCsvDialogData {
-  className: string;
-  jsonConfig: IPageStructure;
-}
-
-ImportCsvResult
+### `ImportCsvResult`
 
 Estrutura retornada após o processo de importação:
 
+```ts
 export interface ImportCsvResult {
   data: any[];
   settings: {
@@ -51,65 +51,40 @@ export interface ImportCsvResult {
     skipEmptyColumns: boolean;
   };
 }
+```
 
-Funcionalidades Principais
+---
 
-Upload de arquivo CSV (arrastar e soltar ou seleção manual)
+## Propriedades
 
-Detecção automática de delimitador (;, ,, |, \t)
+| Propriedade | Tipo | Descrição |
+|--------------|------|------------|
+| **importForm** | `FormGroup` | Formulário reativo que define as configurações de importação |
+| **selectedFile** | `File \| null` | Arquivo CSV atualmente selecionado |
+| **previewData** | `any[][]` | Prévia das primeiras linhas do arquivo |
+| **colsToImport** | `boolean[]` | Define quais colunas serão importadas |
+| **classAttributesNames** | `string[]` | Lista de atributos da classe (usada para gerar o template) |
 
-Detecção de encoding (UTF-8, UTF-16LE, etc.)
+---
 
-Visualização prévia dos dados
+## Métodos
 
-Seleção de colunas para importação
+| Método | Descrição |
+|---------|------------|
+| **onFileSelected()** | Lida com o upload manual do arquivo CSV selecionado pelo usuário |
+| **onDrop()** | Permite arrastar e soltar o arquivo CSV diretamente na interface |
+| **processFile()** | Processa o conteúdo do arquivo e gera a prévia dos dados |
+| **parseCSVContent()** | Analisa o conteúdo e detecta a estrutura e tipos das colunas |
+| **convertValueByType()** | Converte os valores com base no tipo do campo configurado no JSON |
+| **validateForRequiredColumns()** | Garante que o CSV contenha todos os campos obrigatórios definidos no JSON |
+| **downloadTemplate()** | Gera automaticamente um modelo CSV com base na estrutura JSON configurada |
+| **onImport()** | Finaliza o processo e retorna os dados processados ao chamador do diálogo |
 
-Conversão de tipos de valores conforme JSON de configuração
+---
 
-Validação de campos obrigatórios
+## Exemplo de Uso
 
-Geração automática de template CSV
-
-Suporte a atualização via coluna id
-
-Tratamento de erros e feedback visual (barra de progresso, tooltips, mensagens de erro)
-
-Conversão de Tipos
-Tipo no JSON	Conversão no CSV	Exemplos de Valores Válidos
-boolean	Reconhece valores como true, 1, sim, on, ativo	Sim, false, 0
-number	Remove formatações e converte para número	1.500, 2000, 3,14
-date	Converte formatos comuns para ISO	25/12/2024, 2024-12-25
-datetime	Similar ao date, incluindo hora se presente	25/12/2024 14:30
-string	Mantém valor original	Texto livre
-Propriedades
-Propriedade	Tipo	Descrição
-importForm	FormGroup	Formulário reativo que define as configurações de importação
-selectedFile	File | null	Arquivo CSV atualmente selecionado
-previewData	any[][]	Prévia das primeiras linhas do arquivo
-colsToImport	boolean[]	Define quais colunas serão importadas
-classAttributesNames	string[]	Lista de atributos da classe (usada para gerar o template)
-Métodos
-
-onFileSelected() – Lida com o upload manual do arquivo CSV selecionado pelo usuário
-
-onDrop() – Permite arrastar e soltar o arquivo CSV diretamente na interface
-
-processFile() – Processa o conteúdo do arquivo e gera a prévia dos dados
-
-parseCSVContent() – Analisa o conteúdo e detecta a estrutura e tipos das colunas
-
-convertValueByType() – Converte os valores com base no tipo do campo configurado no JSON
-
-validateForRequiredColumns() – Garante que o CSV contenha todos os campos obrigatórios definidos no JSON
-
-downloadTemplate() – Gera automaticamente um modelo CSV com base na estrutura JSON configurada
-
-onImport() – Finaliza o processo e retorna os dados processados ao chamador do diálogo
-
-Exemplo de Uso
-
-O componente é aberto via MatDialog a partir de outro componente Angular:
-
+```ts
 const dialogRef = this.dialog.open(ImportCsvComponent, {
   data: {
     className: 'Produto',
@@ -122,31 +97,61 @@ dialogRef.afterClosed().subscribe((result: ImportCsvResult | undefined) => {
     console.log('Dados importados:', result.data);
   }
 });
+```
 
-Observações
+---
 
-O componente valida automaticamente se o arquivo CSV é compatível com o SubForm antes de importar
+## Observações
 
-É possível desmarcar colunas que não devem ser importadas
+- O componente valida automaticamente se o arquivo CSV é compatível com o **SubForm** antes de importar.  
+- É possível **desmarcar colunas** que não devem ser importadas.  
+- Caso o CSV contenha a coluna `id`, os registros existentes serão **atualizados**, e não criados novamente.  
+- Colunas não reconhecidas ou com tipos incompatíveis são tratadas e exibidas com **avisos visuais (tooltips)**.
 
-Caso o CSV contenha a coluna id, os registros existentes serão atualizados, não criados novamente
+---
 
-Colunas não reconhecidas ou com tipos incompatíveis são tratadas e exibidas com avisos visuais (tooltips)
+## Exemplo de Template CSV
 
-Exemplo de Template CSV
-
-O botão “Baixar Template” gera automaticamente um modelo CSV com base nas colunas do JSON configurado:
-
+```csv
 id,nome,preco,ativo
 exemplo_id,exemplo_nome,exemplo_preco,exemplo_ativo
+```
 
-Dependências
+---
 
-@angular/forms
+## Dependências
 
-@angular/material
+- `@angular/forms`  
+- `@angular/material`  
+- `@angular/common`  
+- `app/shared/models/pageStructure`
 
-@angular/common
+---
 
-app/shared/models/pageStructure
+## Estrutura de Pastas Recomendada
 
+```
+src/
+├── app/
+│   ├── shared/
+│   │   ├── components/
+│   │   │   ├── import-csv/
+│   │   │   │   ├── import-csv.component.ts
+│   │   │   │   ├── import-csv.component.html
+│   │   │   │   ├── import-csv.component.scss
+│   │   │   │   └── import-csv.component.spec.ts
+│   │   └── models/
+│   │       └── pageStructure.ts
+```
+
+---
+
+## Autor / Responsável Técnico
+
+**Componente:** `ImportCsvComponent`  
+**Desenvolvido por:** Equipe de Desenvolvimento Angular  
+**Última atualização:** Outubro de 2025
+
+---
+
+> *Este componente foi desenvolvido para simplificar o processo de importação de dados em SubForms, garantindo robustez, validação e flexibilidade para diferentes formatos de CSV.*
