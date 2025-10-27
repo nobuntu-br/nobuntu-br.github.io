@@ -1,7 +1,6 @@
----
-# ImportCsvComponent
+# 📥 ImportCsvComponent
 
-##  Descrição
+## 🧩 Descrição
 O **ImportCsvComponent** é um componente Angular responsável por importar arquivos CSV para dentro de um **SubForm**.  
 Ele permite que o usuário carregue um arquivo CSV, visualize uma prévia dos dados, selecione quais colunas serão importadas e processe os dados convertendo automaticamente os tipos conforme a configuração JSON da classe (definida via `IPageStructure`).
 
@@ -11,7 +10,7 @@ Se uma coluna com o nome `id` for incluída, o sistema atualizará o registro co
 
 ---
 
-## Estrutura e Interfaces
+## 🧱 Estrutura e Interfaces
 
 ### `ImportCsvDialogData`
 Define os dados recebidos pelo diálogo de importação.
@@ -41,7 +40,7 @@ export interface ImportCsvResult {
 
 ---
 
-## Funcionalidades Principais
+## ⚙️ Funcionalidades Principais
 
 - **Upload de arquivo CSV** (arrastar e soltar ou seleção manual)
 - **Detecção automática de delimitador** (`;`, `,`, `|`, `\t`)
@@ -56,7 +55,7 @@ export interface ImportCsvResult {
 
 ---
 
-## Conversão de Tipos
+## 🔢 Conversão de Tipos
 
 | Tipo no JSON | Conversão no CSV | Exemplo de Valor Válido |
 |---------------|------------------|--------------------------|
@@ -68,19 +67,19 @@ export interface ImportCsvResult {
 
 ---
 
-## Propriedades
+## ⚙️ Propriedades
 
 | Propriedade | Tipo | Descrição |
 |--------------|------|------------|
 | `importForm` | `FormGroup` | Formulário reativo que define as configurações de importação. |
-| `selectedFile` | `File \| null` | Arquivo CSV atualmente selecionado. |
+| `selectedFile` | `File` \| `null` | Arquivo CSV atualmente selecionado. |
 | `previewData` | `any[][]` | Prévia das primeiras linhas do arquivo. |
 | `colsToImport` | `boolean[]` | Define quais colunas serão importadas. |
 | `classAttributesNames` | `string[]` | Lista de atributos da classe (usada para gerar o template). |
 
 ---
 
-## Métodos Principais
+## 🧮 Métodos Principais
 
 | Método | Descrição |
 |---------|------------|
@@ -95,7 +94,7 @@ export interface ImportCsvResult {
 
 ---
 
-## Exemplo de Uso
+## 💡 Exemplo de Uso
 
 O componente é aberto via **MatDialog** a partir de outro componente, passando as informações da classe e estrutura JSON:
 
@@ -116,7 +115,7 @@ dialogRef.afterClosed().subscribe((result: ImportCsvResult | undefined) => {
 
 ---
 
-##  Observações
+## 🧠 Observações
 
 - O componente **verifica automaticamente** se o arquivo CSV é válido para o subform antes de importar.
 - É possível **desmarcar colunas** que não devem ser importadas.
@@ -125,7 +124,7 @@ dialogRef.afterClosed().subscribe((result: ImportCsvResult | undefined) => {
 
 ---
 
-## Template CSV Gerado
+## 🧾 Template CSV Gerado
 
 Um template padrão pode ser baixado com o botão **"Baixar Template"**, gerado automaticamente com base nas colunas do JSON de configuração.
 
@@ -138,7 +137,7 @@ exemplo_id,exemplo_nome,exemplo_preco,exemplo_ativo
 
 ---
 
-## Dependências
+## 📦 Dependências
 
 - `@angular/forms`
 - `@angular/material`
@@ -147,6 +146,5 @@ exemplo_id,exemplo_nome,exemplo_preco,exemplo_ativo
 
 ---
 
-## Autor
+## ✍️ Autor
 Desenvolvido como parte da melhoria do **SubForm Import CSV**, permitindo importação em massa de registros com controle de colunas e validações automáticas.
----
